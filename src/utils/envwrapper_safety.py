@@ -32,6 +32,8 @@ class SafeEnvContainer:
         x,y = obs["pose"][16], obs["pose"][15]
         yaw = np.pi / 2 - obs["pose"][12]
 
+        print(speed, x, y, yaw)
+
         speed, x, y, yaw = (torch.tensor(elem, device=DEVICE).reshape((-1,1)).float() for elem in (speed,x,y,yaw))
         return torch.cat((obs_encoded, speed, x, y, yaw), 1).to(DEVICE)
 
@@ -48,7 +50,6 @@ class SafeEnvContainer:
         if env:
             self.env = env
         obs, reward, done, info = self.env.step(action)
-        print(self._process_obs(obs))
         
         return self._process_obs(obs), reward, done, info
 
