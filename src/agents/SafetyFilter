@@ -6,7 +6,7 @@ import dill
 import ipdb
 
 class PredictiveSafetyFilter:
-    def __init__(self, system, x_init, horizon, obj_weights = None, state_constr = None, input_constr = None):
+    def __init__(self, system=None, x_init=None, horizon=None, obj_weights = None, state_constr = None, input_constr = None):
         self.system = system
         if hasattr(system, 'sigma_w'):
             self.sigma_w = system.sigma_w
@@ -478,7 +478,7 @@ class PredictiveSafetyFilter:
         return sol
 
 class MPSafetyFilter:
-    def __init__(self,x_dim,u_dim=None, P=None, G_x=None, f_x=None, G_u=None, f_u=None, alpha=None, dynamics=None, N = 20):
+    def __init__(self,x_dim=None,u_dim=None, P=None, G_x=None, f_x=None, G_u=None, f_u=None, alpha=None, dynamics=None, N = 20):
         
         '''
             x_dim       : state dimension
@@ -592,7 +592,7 @@ class MPSafetyFilter:
         self.opti.subject_to(x[-x_dim:].T@self.P@x[-x_dim:] <= self.alpha) 
         pass
 
-    def solve(self, x0, u_L):
+    def solve(self, x0=None, u_L=None):
         
         # solve
         self.opti.set_value(self.x0, x0)
@@ -625,7 +625,7 @@ class MPSafetyFilter:
         self.__dict__ = state
         self.opti = casadi.Opti()
 
-def getSafetyFilter(option=1, ):
+def getSafetyFilter(option=1):
   try:
     if option == 1:
       return MPSafetyFilter()

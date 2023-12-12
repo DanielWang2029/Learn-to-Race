@@ -18,6 +18,7 @@ from src.config.yamlize import yamlize, create_configurable, NameToSourcePath
 from src.utils.utils import ActionSample
 
 from src.constants import DEVICE
+from src.agents.SafetyFilter import getSafetyFilter
 
 
 @yamlize

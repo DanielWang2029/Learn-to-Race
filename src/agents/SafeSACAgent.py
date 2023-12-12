@@ -20,6 +20,7 @@ from src.utils.utils import ActionSample
 
 from src.constants import DEVICE
 import math
+from src.agents.SafetyFilter import getSafetyFilter
 
 @yamlize
 class SafeSACAgent(SACAgent):
@@ -209,6 +210,14 @@ class SafeSACAgent(SACAgent):
         action = ActionSample()
         action.action = a
         print(a)
+        
+        try:
+            sf = getSafetyFilter() # what will be the input
+            sol = sf.solve()
+            print(sol)
+        except Exception as e:
+            pass
+
         return action
 
 # safety_data_path + trackname?
