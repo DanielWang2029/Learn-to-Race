@@ -210,7 +210,7 @@ class SafeSACAgent(SACAgent):
         action = ActionSample()
         action.action = a
         print(a)
-        
+
         try:
             sf = getSafetyFilter() # what will be the input
             sol = sf.solve()
