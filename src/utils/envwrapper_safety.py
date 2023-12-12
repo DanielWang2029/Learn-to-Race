@@ -48,7 +48,7 @@ class SafeEnvContainer:
         if env:
             self.env = env
         obs, reward, done, info = self.env.step(action)
-        print(self._process_obs(obs.keys()))
+        print(self._process_obs(obs))
         
         return self._process_obs(obs), reward, done, info
 
