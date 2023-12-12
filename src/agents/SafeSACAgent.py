@@ -208,6 +208,7 @@ class SafeSACAgent(SACAgent):
         self.t += 1
         action = ActionSample()
         action.action = a
+        print(a)
         return action
 
 # safety_data_path + trackname?
