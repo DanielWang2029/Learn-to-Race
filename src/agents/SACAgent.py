@@ -113,6 +113,7 @@ class SACAgent(BaseAgent):
             action_obj.action = a
             self.record["transition_actor"] = "random"
         self.t = self.t + 1
+        print(action_obj.action)
         return action_obj
 
     def register_reset(self, obs):
