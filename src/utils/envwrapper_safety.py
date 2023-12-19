@@ -52,7 +52,7 @@ class SafeEnvContainer:
         obs, reward, done, info = self.env.step(action)
 
         print(type(obs['images']))
-        print(len(obs['images']['CameraFrontRGB']))
+        print(np.array(obs['images']['CameraFrontRGB']).shape)
         print(reward)
         print(done)
         print(info)
