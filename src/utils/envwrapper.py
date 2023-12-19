@@ -48,7 +48,10 @@ class EnvContainer:
         if env:
             self.env = env
         obs, reward, done, info = self.env.step(action)
-        print(obs)
+        print(type(obs))
+        print(obs.keys())
+        print(type(obs['images']))
+        print(obs['images'].key())
         print(reward)
         print(done)
         print(info)
