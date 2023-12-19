@@ -52,9 +52,9 @@ class SafeEnvContainer:
         obs, reward, done, info = self.env.step(action)
 
         print(type(obs))
-        print(obs.keys())
+        print(list(obs.keys()))
         print(type(obs['images']))
-        print(obs['images'].keys())
+        print(list(obs['images'].keys()))
         print(reward)
         print(done)
         print(info)
