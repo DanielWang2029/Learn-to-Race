@@ -51,7 +51,7 @@ class EnvContainer:
         print(type(obs))
         print(obs.keys())
         print(type(obs['images']))
-        print(obs['images'].key())
+        print(obs['images'].keys())
         print(reward)
         print(done)
         print(info)
