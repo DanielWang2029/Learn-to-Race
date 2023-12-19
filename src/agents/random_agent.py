@@ -179,7 +179,11 @@ class RandomAgent(SACAgent):
         return V_est, local_state
 
     def select_action(self, feat, nearest_idx = -1, deterministic=False):
-        return self.env.action_space.sample()
+        self.record['transition_actor'] = 'random'
+        self.t += 1
+        action = ActionSample()
+        action.action = np.random.uniform([-1, -0.125], [1, 1])
+        return action
 
 # safety_data_path + trackname?
 # safety_margin
