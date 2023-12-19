@@ -56,7 +56,7 @@ class RandomAgent(SACAgent):
 
 
         # SACAgent init. Might not work.
-        super(SafeSACAgent, self).__init__(steps_to_sample_randomly, gamma, alpha, polyak, lr, actor_critic_cfg_path, load_checkpoint_from)
+        super(RandomAgent, self).__init__(steps_to_sample_randomly, gamma, alpha, polyak, lr, actor_critic_cfg_path, load_checkpoint_from)
 
 
         self.safety_data_path = safety_data_path
