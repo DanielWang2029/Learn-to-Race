@@ -1,5 +1,5 @@
 from l2r import build_env
-from l2r import RacingEnvCarla
+from l2r.env import RacingEnvCarla
 
 # from l2r import RacingEnv
 from src.config.yamlize import NameToSourcePath, create_configurable
