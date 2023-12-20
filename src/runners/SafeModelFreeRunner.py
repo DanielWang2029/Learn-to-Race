@@ -131,7 +131,10 @@ class SafeModelFreeRunner(BaseRunner):
             env (gym.env): Some gym-compliant environment, preferrably wrapped using a wrapper
             api_key (str, optional): Wandb API key for logging. Defaults to ''.
         """
-        self.agent._load_track_info(env.racetrack.centerline_arr)
+        try:
+            self.agent._load_track_info(env.racetrack.centerline_arr)
+        except Exception as e:
+            pass
         self.wandb_logger = None
         if api_key:
             self.wandb_logger = WanDBLogger(
@@ -153,7 +156,10 @@ class SafeModelFreeRunner(BaseRunner):
             while not done:
                 t += 1
                 self.agent.deterministic = False
-                nearest_idx = self.env_wrapped.env.nearest_idx
+                try:
+                    nearest_idx = self.env_wrapped.env.nearest_idx
+                except Exception as e:
+                    nearest_idx = 0
                 action_obj = self.agent.select_action(obs_encoded, nearest_idx = nearest_idx)
                 if self.env_wrapped:
                     obs_encoded_new, reward, done, info = self.env_wrapped.step(
