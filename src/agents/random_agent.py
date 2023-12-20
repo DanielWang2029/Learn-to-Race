@@ -20,7 +20,7 @@ from src.utils.utils import ActionSample
 
 from src.constants import DEVICE
 import math
-from src.agents.SafetyFilter import getSafetyFilter
+# from src.agents.SafetyFilter import getSafetyFilter
 
 @yamlize
 class RandomAgent(SACAgent):
